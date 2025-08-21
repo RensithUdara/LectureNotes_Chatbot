@@ -3,8 +3,8 @@ import streamlit as st
 from chatbot import ask  # Importing the ask function from chatbot.py
 
 # Set up page
-st.set_page_config(page_title="CTSE Chatbot", layout="wide")
-st.title("📘 CTSE Lecture Notes Chatbot (Llama3 + LangChain)")
+st.set_page_config(page_title="Lecture Notes Chatbot", layout="wide")
+st.title("📘 Lecture Notes Chatbot (Llama3 + LangChain)")
 
 # Initialize session state for chat history
 if "chat_history" not in st.session_state:
