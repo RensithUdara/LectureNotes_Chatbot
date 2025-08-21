@@ -492,25 +492,25 @@ st.markdown("### 💭 Interactive Learning Chat")
 if not st.session_state.pdf_processed:
     st.markdown("""
     <div class="welcome-card">
-        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.5rem;">🚀 Welcome to AI Lecture Assistant!</h3>
-        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">Transform your learning experience with intelligent conversations about your study materials.</p>
-        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 1.5rem;">👈 Start by uploading your lecture notes in the sidebar</p>
+        <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.5rem;">🚀 Welcome to AI Lecture Assistant!</h3>
+        <p style="color: #64748b; font-size: 1.1rem; margin-bottom: 0.5rem;">Transform your learning experience with intelligent conversations about your study materials.</p>
+        <p style="color: #1e293b; font-weight: 600; margin-bottom: 1.5rem;">👈 Start by uploading your lecture notes in the sidebar</p>
         
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
             <div class="process-step">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📤</div>
-                <strong style="color: var(--text-primary);">Upload</strong><br>
-                <small style="color: var(--text-secondary);">Add your PDF documents</small>
+                <strong style="color: #1e293b;">Upload</strong><br>
+                <small style="color: #64748b;">Add your PDF documents</small>
             </div>
             <div class="process-step">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
-                <strong style="color: var(--text-primary);">Process</strong><br>
-                <small style="color: var(--text-secondary);">AI analyzes your content</small>
+                <strong style="color: #1e293b;">Process</strong><br>
+                <small style="color: #64748b;">AI analyzes your content</small>
             </div>
             <div class="process-step">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
-                <strong style="color: var(--text-primary);">Chat</strong><br>
-                <small style="color: var(--text-secondary);">Ask questions & learn</small>
+                <strong style="color: #1e293b;">Chat</strong><br>
+                <small style="color: #64748b;">Ask questions & learn</small>
             </div>
         </div>
     </div>
