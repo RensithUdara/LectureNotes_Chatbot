@@ -593,7 +593,39 @@ st.markdown("""
             margin-right: 5%; 
         }
     }
+    
+    /* Additional cleanup */
+    .stApp [data-testid="stSidebarNav"] {
+        display: none !important;
+    }
+    
+    .stApp button[kind="header"] {
+        display: none !important;
+    }
 </style>
+
+<script>
+// Clean up any unwanted text elements
+setTimeout(function() {
+    // Remove any elements containing arrow text
+    const unwantedElements = document.querySelectorAll('*');
+    unwantedElements.forEach(element => {
+        if (element.textContent && (
+            element.textContent.includes('keyboard_double_arrow_right') ||
+            element.textContent.includes('arrow_right') ||
+            element.textContent.includes('keyboard_arrow_right')
+        )) {
+            element.style.display = 'none';
+        }
+    });
+    
+    // Hide sidebar toggle if it exists
+    const sidebarToggle = document.querySelector('[data-testid="collapsedControl"]');
+    if (sidebarToggle) {
+        sidebarToggle.style.display = 'none';
+    }
+}, 1000);
+</script>
 """, unsafe_allow_html=True)
 
 # Title
