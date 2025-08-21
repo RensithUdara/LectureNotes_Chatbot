@@ -301,26 +301,101 @@ st.markdown("""
         line-height: 1.4;
     }
     
-    /* General text color fixes */
+    /* Enhanced Component Styling */
     .stExpander > div > div > p {
         color: #1e293b !important;
     }
     
+    .stInfo {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%) !important;
+        border-left: 4px solid #3b82f6 !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
+    }
+    
     .stInfo > div > div > p {
-        color: #0c4a6e !important;
+        color: #1e40af !important;
+        font-weight: 500 !important;
+    }
+    
+    .stSuccess {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%) !important;
+        border-left: 4px solid #10b981 !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
     }
     
     .stSuccess > div > div > p {
-        color: #064e3b !important;
+        color: #065f46 !important;
+        font-weight: 500 !important;
     }
     
-    /* Metric styling */
+    .stError {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%) !important;
+        border-left: 4px solid #ef4444 !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
+    }
+    
+    .stError > div > div > p {
+        color: #991b1b !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Enhanced Metric styling */
+    .stMetric {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-align: center;
+    }
+    
     .stMetric > div > div {
         color: #1e293b !important;
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
     }
     
     .stMetric label {
         color: #64748b !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    /* Enhanced Expander */
+    .stExpander {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.7) 100%);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin: 0.5rem 0;
+    }
+    
+    .stSpinner > div {
+        border-top-color: #3b82f6 !important;
+    }
+    
+    /* Footer styling */
+    .footer-content {
+        text-align: center;
+        color: #64748b;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        margin-top: 2rem;
+    }
+    
+    .footer-content p {
+        margin: 0.5rem 0;
+        font-weight: 500;
+    }
+    
+    .footer-content strong {
+        color: #1e293b;
     }
     
     /* Status badges */
@@ -661,7 +736,7 @@ if st.session_state.chat_history:
 # Footer
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; color: #64748b;'>
+<div class='footer-content'>
     <p>🎓 <strong>AI Lecture Assistant</strong> | Powered by 🦙 LLaMA3 + 🦜 LangChain + ⚡ Streamlit</p>
     <p><em>Transforming education through intelligent AI conversations</em></p>
 </div>
