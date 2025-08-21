@@ -454,20 +454,30 @@ with st.sidebar:
             </div>
             """, unsafe_allow_html=True)
     
-    st.markdown("### 💡 Quick Guide")
     st.markdown("""
-    **Step 1:** 📤 Upload your PDF  
-    **Step 2:** 🚀 Process the document  
-    **Step 3:** 💬 Start asking questions  
-    **Step 4:** 🎯 Get instant answers  
+    <div style='margin: 1.5rem 0 1rem 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);'>
+        <h3 style='color: #f1f5f9; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.75rem;'>💡 Quick Guide</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
-    ---
-    
-    **💬 Try asking:**
-    - "What are the main topics?"
-    - "Explain the key concepts"
-    - "Summarize chapter 1"
-    """)
+    st.markdown("""
+    <div style='color: #cbd5e1; font-size: 0.85rem; line-height: 1.6;'>
+        <p style='color: #f1f5f9; font-weight: 500; margin-bottom: 0.5rem;'>📋 Getting Started:</p>
+        <div style='margin-left: 0.5rem; margin-bottom: 1rem;'>
+            <div style='margin: 0.25rem 0;'>📤 <strong>Step 1:</strong> Upload your PDF</div>
+            <div style='margin: 0.25rem 0;'>🚀 <strong>Step 2:</strong> Process the document</div>
+            <div style='margin: 0.25rem 0;'>💬 <strong>Step 3:</strong> Start asking questions</div>
+            <div style='margin: 0.25rem 0;'>🎯 <strong>Step 4:</strong> Get instant answers</div>
+        </div>
+        
+        <p style='color: #f1f5f9; font-weight: 500; margin-bottom: 0.5rem;'>💬 Example Questions:</p>
+        <div style='margin-left: 0.5rem;'>
+            <div style='margin: 0.25rem 0;'>• "What are the main topics?"</div>
+            <div style='margin: 0.25rem 0;'>• "Explain the key concepts"</div>
+            <div style='margin: 0.25rem 0;'>• "Summarize chapter 1"</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Initialize session state
 if "chat_history" not in st.session_state:
@@ -482,22 +492,25 @@ st.markdown("### 💭 Interactive Learning Chat")
 if not st.session_state.pdf_processed:
     st.markdown("""
     <div class="welcome-card">
-        <h3>🚀 Welcome to AI Lecture Assistant!</h3>
-        <p>Transform your learning experience with intelligent conversations about your study materials.</p>
-        <p><strong>👈 Start by uploading your lecture notes in the sidebar</strong></p>
-        <br>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px; margin: 5px;">
-                <strong>📤 Upload</strong><br>
-                <small>Add your PDF documents</small>
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.5rem;">🚀 Welcome to AI Lecture Assistant!</h3>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 0.5rem;">Transform your learning experience with intelligent conversations about your study materials.</p>
+        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 1.5rem;">👈 Start by uploading your lecture notes in the sidebar</p>
+        
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+            <div class="process-step">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📤</div>
+                <strong style="color: var(--text-primary);">Upload</strong><br>
+                <small style="color: var(--text-secondary);">Add your PDF documents</small>
             </div>
-            <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px; margin: 5px;">
-                <strong>🔄 Process</strong><br>
-                <small>AI analyzes your content</small>
+            <div class="process-step">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
+                <strong style="color: var(--text-primary);">Process</strong><br>
+                <small style="color: var(--text-secondary);">AI analyzes your content</small>
             </div>
-            <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px; margin: 5px;">
-                <strong>💬 Chat</strong><br>
-                <small>Ask questions & learn</small>
+            <div class="process-step">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
+                <strong style="color: var(--text-primary);">Chat</strong><br>
+                <small style="color: var(--text-secondary);">Ask questions & learn</small>
             </div>
         </div>
     </div>
@@ -605,21 +618,44 @@ if st.session_state.chat_history:
 else:
     st.markdown("""
     <div class="welcome-card">
-        <h3>🎯 Ready to Learn!</h3>
-        <p>Your AI assistant is ready to help you understand your lecture notes better.</p>
-        <br>
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.4rem;">🎯 Ready to Learn!</h3>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Your AI assistant is ready to help you understand your lecture notes better.</p>
+        
         <div style="text-align: left; max-width: 600px; margin: 0 auto;">
-            <h4>📝 What you can ask:</h4>
-            <ul style="list-style: none; padding: 0;">
-                <li>🔍 <strong>Summarize:</strong> "Give me a summary of chapter 3"</li>
-                <li>💡 <strong>Explain:</strong> "What does this concept mean?"</li>
-                <li>🎯 <strong>Focus:</strong> "What are the key points to remember?"</li>
-                <li>❓ <strong>Quiz:</strong> "Ask me questions about this topic"</li>
-                <li>🔗 <strong>Connect:</strong> "How does this relate to previous topics?"</li>
-            </ul>
+            <h4 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">📝 What you can ask:</h4>
+            <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                    <span style="margin-right: 0.75rem;">🔍</span>
+                    <div>
+                        <strong style="color: var(--text-primary);">Summarize:</strong> 
+                        <span style="color: var(--text-secondary);">"Give me a summary of chapter 3"</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                    <span style="margin-right: 0.75rem;">💡</span>
+                    <div>
+                        <strong style="color: var(--text-primary);">Explain:</strong> 
+                        <span style="color: var(--text-secondary);">"What does this concept mean?"</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                    <span style="margin-right: 0.75rem;">🎯</span>
+                    <div>
+                        <strong style="color: var(--text-primary);">Focus:</strong> 
+                        <span style="color: var(--text-secondary);">"What are the key points to remember?"</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                    <span style="margin-right: 0.75rem;">❓</span>
+                    <div>
+                        <strong style="color: var(--text-primary);">Quiz:</strong> 
+                        <span style="color: var(--text-secondary);">"Ask me questions about this topic"</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <p><em>💬 Type your question above or click "Tips" for more ideas!</em></p>
+        
+        <p style="color: var(--text-light); font-style: italic; margin: 0;"><em>💬 Type your question above or click "Tips" for more ideas!</em></p>
     </div>
     """)
 
