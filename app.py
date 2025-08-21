@@ -46,7 +46,7 @@ st.markdown("""
         border-right: 3px solid #3b82f6 !important;
     }
     
-    /* Sidebar Text Colors - Fixed for Visibility */
+    /* Sidebar Text Colors - Complete Fix for Dark Background */
     .css-1d391kg .stMarkdown {
         color: #f8fafc !important;
     }
@@ -56,7 +56,9 @@ st.markdown("""
     .css-1d391kg .stMarkdown h3,
     .css-1d391kg .stMarkdown h4,
     .css-1d391kg .stMarkdown p,
-    .css-1d391kg .stMarkdown strong {
+    .css-1d391kg .stMarkdown strong,
+    .css-1d391kg .stMarkdown span,
+    .css-1d391kg .stMarkdown div {
         color: #f8fafc !important;
     }
     
@@ -64,7 +66,11 @@ st.markdown("""
         color: #cbd5e1 !important;
     }
     
-    /* Sidebar File Uploader */
+    .css-1d391kg .stMarkdown small {
+        color: #cbd5e1 !important;
+    }
+    
+    /* File Uploader in Sidebar */
     .css-1d391kg .stFileUploader {
         background: rgba(59, 130, 246, 0.1) !important;
         border-radius: 12px !important;
@@ -73,6 +79,28 @@ st.markdown("""
     }
     
     .css-1d391kg .stFileUploader label {
+        color: #f8fafc !important;
+    }
+    
+    .css-1d391kg .stFileUploader > div > div > div {
+        color: #f8fafc !important;
+    }
+    
+    .css-1d391kg .stFileUploader button {
+        color: #f8fafc !important;
+        background: rgba(59, 130, 246, 0.2) !important;
+        border: 1px solid #3b82f6 !important;
+    }
+    
+    /* All text elements in sidebar */
+    .css-1d391kg * {
+        color: #f8fafc !important;
+    }
+    
+    /* Override any dark text */
+    .css-1d391kg .stText,
+    .css-1d391kg .stCaption,
+    .css-1d391kg .stWrite {
         color: #f8fafc !important;
     }
     
@@ -90,6 +118,44 @@ st.markdown("""
         background: #2563eb !important;
         transform: translateY(-2px) !important;
         box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+    }
+    
+    /* Sidebar File Uploader Text Fix */
+    .css-1d391kg .stFileUploader .st-emotion-cache-1vt4y43 {
+        color: #f8fafc !important;
+    }
+    
+    .css-1d391kg .stFileUploader .st-emotion-cache-1vt4y43 p {
+        color: #f8fafc !important;
+    }
+    
+    .css-1d391kg .stFileUploader div[data-testid="stFileUploaderDropzone"] {
+        color: #f8fafc !important;
+    }
+    
+    .css-1d391kg .stFileUploader div[data-testid="stFileUploaderDropzone"] * {
+        color: #f8fafc !important;
+    }
+    
+    /* Force all sidebar text to be white */
+    section[data-testid="stSidebar"] {
+        color: #f8fafc !important;
+    }
+    
+    section[data-testid="stSidebar"] * {
+        color: #f8fafc !important;
+    }
+    
+    section[data-testid="stSidebar"] .stMarkdown * {
+        color: #f8fafc !important;
+    }
+    
+    section[data-testid="stSidebar"] .stWrite * {
+        color: #f8fafc !important;
+    }
+    
+    section[data-testid="stSidebar"] .stCaption * {
+        color: #cbd5e1 !important;
     }
     
     /* Main Content Text Colors */
