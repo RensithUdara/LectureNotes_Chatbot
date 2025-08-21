@@ -491,23 +491,24 @@ st.markdown("### 💭 Interactive Learning Chat")
 
 if not st.session_state.pdf_processed:
     st.markdown("""
-    <div class="welcome-card">
+    <div style="background: #ffffff; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; margin: 1.5rem 0; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 16px 16px 0 0;"></div>
         <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.5rem;">🚀 Welcome to AI Lecture Assistant!</h3>
         <p style="color: #64748b; font-size: 1.1rem; margin-bottom: 0.5rem;">Transform your learning experience with intelligent conversations about your study materials.</p>
         <p style="color: #1e293b; font-weight: 600; margin-bottom: 1.5rem;">👈 Start by uploading your lecture notes in the sidebar</p>
         
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-            <div class="process-step">
+            <div style="background: rgba(255, 255, 255, 0.9); padding: 1rem; border-radius: 8px; margin: 0.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; transition: transform 0.2s ease;">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📤</div>
                 <strong style="color: #1e293b;">Upload</strong><br>
                 <small style="color: #64748b;">Add your PDF documents</small>
             </div>
-            <div class="process-step">
+            <div style="background: rgba(255, 255, 255, 0.9); padding: 1rem; border-radius: 8px; margin: 0.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; transition: transform 0.2s ease;">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
                 <strong style="color: #1e293b;">Process</strong><br>
                 <small style="color: #64748b;">AI analyzes your content</small>
             </div>
-            <div class="process-step">
+            <div style="background: rgba(255, 255, 255, 0.9); padding: 1rem; border-radius: 8px; margin: 0.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; transition: transform 0.2s ease;">
                 <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
                 <strong style="color: #1e293b;">Chat</strong><br>
                 <small style="color: #64748b;">Ask questions & learn</small>
@@ -617,36 +618,37 @@ if st.session_state.chat_history:
 
 else:
     st.markdown("""
-    <div class="welcome-card">
+    <div style="background: #ffffff; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; margin: 1.5rem 0; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 16px 16px 0 0;"></div>
         <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.4rem;">🎯 Ready to Learn!</h3>
         <p style="color: #64748b; font-size: 1.1rem; margin-bottom: 1.5rem;">Your AI assistant is ready to help you understand your lecture notes better.</p>
         
         <div style="text-align: left; max-width: 600px; margin: 0 auto;">
             <h4 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.1rem;">📝 What you can ask:</h4>
             <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
-                    <span style="margin-right: 0.75rem;">🔍</span>
+                <div style="display: flex; align-items: center; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <span style="margin-right: 0.75rem; font-size: 1.2rem;">🔍</span>
                     <div>
                         <strong style="color: #1e293b;">Summarize:</strong> 
                         <span style="color: #64748b;">"Give me a summary of chapter 3"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
-                    <span style="margin-right: 0.75rem;">💡</span>
+                <div style="display: flex; align-items: center; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <span style="margin-right: 0.75rem; font-size: 1.2rem;">💡</span>
                     <div>
                         <strong style="color: #1e293b;">Explain:</strong> 
                         <span style="color: #64748b;">"What does this concept mean?"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
-                    <span style="margin-right: 0.75rem;">🎯</span>
+                <div style="display: flex; align-items: center; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <span style="margin-right: 0.75rem; font-size: 1.2rem;">🎯</span>
                     <div>
                         <strong style="color: #1e293b;">Focus:</strong> 
                         <span style="color: #64748b;">"What are the key points to remember?"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
-                    <span style="margin-right: 0.75rem;">❓</span>
+                <div style="display: flex; align-items: center; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <span style="margin-right: 0.75rem; font-size: 1.2rem;">❓</span>
                     <div>
                         <strong style="color: #1e293b;">Quiz:</strong> 
                         <span style="color: #64748b;">"Ask me questions about this topic"</span>
