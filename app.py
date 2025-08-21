@@ -154,108 +154,7 @@ st.markdown("""
         max-width: none;
     }
     
-    /* Sidebar Complete Redesign */
-    .css-1d391kg {
-        background: linear-gradient(180deg, #1e293b 0%, #334155 100%) !important;
-        border-right: 3px solid #3b82f6 !important;
-    }
-    
-    /* Sidebar Text Colors - Complete Fix for Dark Background */
-    .css-1d391kg .stMarkdown {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stMarkdown h1,
-    .css-1d391kg .stMarkdown h2,
-    .css-1d391kg .stMarkdown h3,
-    .css-1d391kg .stMarkdown h4,
-    .css-1d391kg .stMarkdown p,
-    .css-1d391kg .stMarkdown strong,
-    .css-1d391kg .stMarkdown span,
-    .css-1d391kg .stMarkdown div {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stMarkdown em {
-        color: #cbd5e1 !important;
-    }
-    
-    .css-1d391kg .stMarkdown small {
-        color: #cbd5e1 !important;
-    }
-    
-    /* File Uploader in Sidebar */
-    .css-1d391kg .stFileUploader {
-        background: rgba(59, 130, 246, 0.1) !important;
-        border-radius: 12px !important;
-        padding: 1rem !important;
-        border: 2px dashed #3b82f6 !important;
-    }
-    
-    .css-1d391kg .stFileUploader label {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stFileUploader > div > div > div {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stFileUploader button {
-        color: #f8fafc !important;
-        background: rgba(59, 130, 246, 0.2) !important;
-        border: 1px solid #3b82f6 !important;
-    }
-    
-    /* All text elements in sidebar */
-    .css-1d391kg * {
-        color: #f8fafc !important;
-    }
-    
-    /* Override any dark text */
-    .css-1d391kg .stText,
-    .css-1d391kg .stCaption,
-    .css-1d391kg .stWrite {
-        color: #f8fafc !important;
-    }
-    
-    /* Sidebar Buttons */
-    .css-1d391kg .stButton > button {
-        background: #3b82f6 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    .css-1d391kg .stButton > button:hover {
-        background: #2563eb !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
-    }
-    
-    /* Sidebar File Uploader Text Fix */
-    .css-1d391kg .stFileUploader .st-emotion-cache-1vt4y43 {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stFileUploader .st-emotion-cache-1vt4y43 p {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stFileUploader div[data-testid="stFileUploaderDropzone"] {
-        color: #f8fafc !important;
-    }
-    
-    .css-1d391kg .stFileUploader div[data-testid="stFileUploaderDropzone"] * {
-        color: #f8fafc !important;
-    }
-    
-    /* Force all sidebar text to be white */
-    section[data-testid="stSidebar"] {
-        color: #f8fafc !important;
-    }
-    
+    /* Sidebar Text Colors - For Fixed Sidebar */
     section[data-testid="stSidebar"] * {
         color: #f8fafc !important;
     }
@@ -264,12 +163,22 @@ st.markdown("""
         color: #f8fafc !important;
     }
     
-    section[data-testid="stSidebar"] .stWrite * {
-        color: #f8fafc !important;
-    }
-    
     section[data-testid="stSidebar"] .stCaption * {
         color: #cbd5e1 !important;
+    }
+    
+    section[data-testid="stSidebar"] .stFileUploader {
+        background: rgba(59, 130, 246, 0.1) !important;
+        border: 2px dashed #3b82f6 !important;
+        border-radius: 12px !important;
+    }
+    
+    section[data-testid="stSidebar"] .stButton > button {
+        background: #3b82f6 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
     }
     
     /* Main Content Text Colors */
