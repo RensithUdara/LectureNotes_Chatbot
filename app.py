@@ -472,28 +472,58 @@ st.markdown("""
 st.markdown("# 🎓 AI Lecture Assistant")
 st.markdown("##### Transform your study experience with AI-powered insights from your lecture notes")
 
-# Sidebar
+# Sidebar - Complete Professional Redesign
 with st.sidebar:
-    st.markdown("## 📚 Document Hub")
-    st.markdown("*Upload and manage your learning materials*")
-    st.markdown("---")
+    # Sidebar Header with Icon
+    st.markdown("""
+    <div style="text-align: center; padding: 1.5rem 0 2rem 0;">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem;">📚</div>
+        <h2 style="color: #f8fafc; margin: 0; font-weight: 700; font-size: 1.4rem;">Document Hub</h2>
+        <p style="color: #cbd5e1; margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">Your Learning Command Center</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    st.markdown("### 📄 Upload Document")
+    # Elegant Separator
+    st.markdown("""
+    <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%); margin: 1rem 0 2rem 0; border-radius: 1px;"></div>
+    """, unsafe_allow_html=True)
+    
+    # Document Upload Section
+    st.markdown("""
+    <div style="background: rgba(59, 130, 246, 0.1); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(59, 130, 246, 0.3); margin-bottom: 1.5rem;">
+        <h3 style="color: #f8fafc; margin: 0 0 1rem 0; font-size: 1.1rem; display: flex; align-items: center;">
+            <span style="font-size: 1.3rem; margin-right: 0.5rem;">📄</span>
+            Upload Document
+        </h3>
+        <p style="color: #cbd5e1; margin: 0 0 1rem 0; font-size: 0.85rem; line-height: 1.4;">
+            Transform your PDF lectures into interactive learning experiences
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader(
         "Choose your lecture notes (PDF)", 
         type="pdf",
-        help="Upload a PDF file containing your lecture notes"
+        help="Upload a PDF file containing your lecture notes",
+        label_visibility="collapsed"
     )
     
     if uploaded_file is not None:
+        st.markdown("""
+        <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid #10b981; margin: 1rem 0;">
+        """, unsafe_allow_html=True)
+        
         col1, col2 = st.columns([3, 1])
         with col1:
-            st.write(f"📋 **{uploaded_file.name}**")
-            st.caption(f"Size: {uploaded_file.size/1024:.1f} KB")
+            st.markdown(f"""
+            <div style="color: #f8fafc;">
+                <strong style="font-size: 0.9rem;">📋 {uploaded_file.name}</strong><br>
+                <small style="color: #cbd5e1; font-size: 0.75rem;">Size: {uploaded_file.size/1024:.1f} KB</small>
+            </div>
+            """, unsafe_allow_html=True)
         with col2:
-            if st.button("🚀", help="Process PDF", type="primary"):
-                with st.spinner("Processing..."):
+            if st.button("🚀", help="Process PDF", type="primary", key="process_pdf"):
+                with st.spinner("🤖 Processing..."):
                     try:
                         success, message = process_uploaded_pdf(uploaded_file)
                         if success:
@@ -506,49 +536,125 @@ with st.sidebar:
                             st.error(f"❌ {message}")
                     except Exception as e:
                         st.error(f"❌ Error: {str(e)}")
+        
+        st.markdown("</div>", unsafe_allow_html=True)
     
-    st.markdown("---")
-    st.markdown("### 📊 Status")
+    # Status Dashboard
+    st.markdown("""
+    <div style="margin: 2rem 0 1.5rem 0;">
+        <h3 style="color: #f8fafc; margin: 0 0 1rem 0; font-size: 1.1rem; display: flex; align-items: center;">
+            <span style="font-size: 1.3rem; margin-right: 0.5rem;">📊</span>
+            System Status
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     if hasattr(st.session_state, 'pdf_processed') and st.session_state.pdf_processed:
         st.markdown(f"""
-        <div class="status-success">
-            ✅ Document Ready<br>
-            <small>{getattr(st.session_state, 'pdf_name', 'Document loaded')}</small>
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 1rem 1.25rem; border-radius: 15px; margin: 1rem 0; text-align: center; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✅</div>
+            <strong style="color: white; font-size: 0.9rem; display: block;">Document Ready</strong>
+            <small style="color: #d1fae5; font-size: 0.75rem;">{getattr(st.session_state, 'pdf_name', 'Document loaded')}</small>
         </div>
         """, unsafe_allow_html=True)
     else:
         if os.path.exists("ctse_lecture_notes.pdf"):
             st.markdown("""
-            <div class="status-success">
-                📋 Default Document<br>
-                <small>ctse_lecture_notes.pdf</small>
+            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 1rem 1.25rem; border-radius: 15px; margin: 1rem 0; text-align: center; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
+                <strong style="color: white; font-size: 0.9rem; display: block;">Default Document</strong>
+                <small style="color: #d1fae5; font-size: 0.75rem;">ctse_lecture_notes.pdf</small>
             </div>
             """, unsafe_allow_html=True)
             st.session_state.pdf_processed = True
         else:
             st.markdown("""
-            <div class="status-warning">
-                ⚠️ No Document<br>
-                <small>Please upload a PDF file</small>
+            <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 1rem 1.25rem; border-radius: 15px; margin: 1rem 0; text-align: center; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚠️</div>
+                <strong style="color: white; font-size: 0.9rem; display: block;">No Document</strong>
+                <small style="color: #fef3c7; font-size: 0.75rem;">Please upload a PDF file</small>
             </div>
             """, unsafe_allow_html=True)
     
-    st.markdown("---")
-    st.markdown("### 💡 Quick Guide")
+    # AI Model Status
     st.markdown("""
-    **Getting Started:**
+    <div style="background: rgba(59, 130, 246, 0.1); padding: 1rem; border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.3); margin: 1rem 0; text-align: center;">
+        <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">🦙</div>
+        <strong style="color: #f8fafc; font-size: 0.85rem; display: block;">AI Model</strong>
+        <small style="color: #cbd5e1; font-size: 0.75rem;">LLaMA3 Ready</small>
+    </div>
+    """, unsafe_allow_html=True)
     
-    📤 **Step 1:** Upload your PDF  
-    🚀 **Step 2:** Process the document  
-    💬 **Step 3:** Start asking questions  
-    🎯 **Step 4:** Get instant answers  
+    # Elegant Separator
+    st.markdown("""
+    <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%); margin: 2rem 0; border-radius: 1px;"></div>
+    """, unsafe_allow_html=True)
     
-    **Example Questions:**
-    - "What are the main topics?"
-    - "Explain the key concepts"
-    - "Summarize chapter 1"
-    """)
+    # Interactive Learning Guide
+    st.markdown("""
+    <div style="margin-bottom: 1.5rem;">
+        <h3 style="color: #f8fafc; margin: 0 0 1rem 0; font-size: 1.1rem; display: flex; align-items: center;">
+            <span style="font-size: 1.3rem; margin-right: 0.5rem;">💡</span>
+            Learning Guide
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Learning Steps with Enhanced Design
+    steps = [
+        {"icon": "📤", "title": "Upload", "desc": "Add your PDF documents", "color": "#3b82f6"},
+        {"icon": "🚀", "title": "Process", "desc": "AI analyzes your content", "color": "#10b981"},
+        {"icon": "💬", "title": "Chat", "desc": "Ask questions & learn", "color": "#f59e0b"},
+        {"icon": "🎯", "title": "Master", "desc": "Get instant insights", "color": "#8b5cf6"}
+    ]
+    
+    for i, step in enumerate(steps, 1):
+        st.markdown(f"""
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 12px; margin: 0.75rem 0; border-left: 3px solid {step['color']}; transition: all 0.3s ease;">
+            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.2rem; margin-right: 0.75rem;">{step['icon']}</span>
+                <div>
+                    <strong style="color: #f8fafc; font-size: 0.9rem; display: block;">Step {i}: {step['title']}</strong>
+                    <small style="color: #cbd5e1; font-size: 0.75rem; line-height: 1.3;">{step['desc']}</small>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Quick Examples Section
+    st.markdown("""
+    <div style="margin-top: 2rem;">
+        <h4 style="color: #f8fafc; margin: 0 0 1rem 0; font-size: 1rem; display: flex; align-items: center;">
+            <span style="font-size: 1.1rem; margin-right: 0.5rem;">❓</span>
+            Example Questions
+        </h4>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    examples = [
+        "What are the main topics?",
+        "Explain key concepts",
+        "Summarize chapter 1",
+        "Create practice questions"
+    ]
+    
+    for example in examples:
+        st.markdown(f"""
+        <div style="background: rgba(255, 255, 255, 0.03); padding: 0.75rem; border-radius: 8px; margin: 0.5rem 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <span style="color: #cbd5e1; font-size: 0.8rem;">💭 "{example}"</span>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Footer Credits in Sidebar
+    st.markdown("""
+    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+        <small style="color: #64748b; font-size: 0.7rem; line-height: 1.4;">
+            Powered by<br>
+            🦙 LLaMA3 • 🦜 LangChain<br>
+            ⚡ Streamlit • 🎓 AI
+        </small>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Initialize session state
 if "chat_history" not in st.session_state:
