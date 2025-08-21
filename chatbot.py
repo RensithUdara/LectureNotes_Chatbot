@@ -21,7 +21,7 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = hf_token
 
 # Load the PDF and split it into chunks
 def load_and_process_pdf():
-    loader = PyPDFLoader("ctse_lecture_notes.pdf")  # Ensure correct path
+    loader = PyPDFLoader("lecture_notes.pdf")  # Ensure correct path
     pages = loader.load_and_split()
     splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)  # Reduce chunk size
     docs = splitter.split_documents(pages)
