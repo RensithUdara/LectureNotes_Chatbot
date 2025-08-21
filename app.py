@@ -12,8 +12,47 @@ st.set_page_config(
 )
 
 # Custom CSS for professional styling
-st.markdown("""
-<style>
+st.        with col2:
+            if st.button("🚀", help="Process PDF", type="primary"):
+                # Enhanced processing with better UX
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+                
+                try:
+                    status_text.text("🔄 Analyzing document structure...")
+                    progress_bar.progress(25)
+                    
+                    success, message = process_uploaded_pdf(uploaded_file)
+                    
+                    if success:
+                        status_text.text("✅ Processing completed!")
+                        progress_bar.progress(100)
+                        
+                        # Success notification
+                        st.success("🎉 Document ready for questions!")
+                        st.balloons()
+                        
+                        st.session_state.pdf_processed = True
+                        st.session_state.pdf_name = uploaded_file.name
+                        # Store the current PDF info for reference
+                        st.session_state.current_pdf_info = {
+                            'name': uploaded_file.name,
+                            'processed': True
+                        }
+                        
+                        # Clear progress indicators
+                        progress_bar.empty()
+                        status_text.empty()
+                        st.rerun()
+                    else:
+                        status_text.text("❌ Processing failed")
+                        progress_bar.progress(0)
+                        st.error(f"❌ {message}")
+                        
+                except Exception as e:
+                    status_text.text("❌ An error occurred")
+                    progress_bar.progress(0)
+                    st.error(f"❌ Error: {str(e)}")yle>
     /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
@@ -500,6 +539,92 @@ if submit and user_query:
             st.session_state.chat_history.append(("Bot", f"⚠️ Error: {str(e)}"))
     else:
         st.error("Please upload and process a PDF file first.")
+
+# Display chat history with enhanced styling
+if st.session_state.chat_history:
+    st.markdown("### 📜 Conversation History")
+    
+    # Chat container with custom styling
+    st.markdown('<div class="chat-container">', unsafe_allow_html=True)
+    
+    # Display messages in reverse order (newest first)
+    for i in range(len(st.session_state.chat_history)-1, -1, -1):
+        role, msg = st.session_state.chat_history[i]
+        if role == "You":
+            st.markdown(
+                f"""
+                <div class="user-message">
+                    <div class="message-label">You asked:</div>
+                    {msg}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f"""
+                <div class="bot-message">
+                    <div class="message-label">AI Assistant:</div>
+                    {msg}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+
+else:
+    # Enhanced welcome message when no chat history
+    st.markdown("""
+    <div class="welcome-card">
+        <h3>🎯 Ready to Learn!</h3>
+        <p>Your AI assistant is ready to help you understand your lecture notes better.</p>
+        <br>
+        <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+            <h4>📝 What you can ask:</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li>🔍 <strong>Summarize:</strong> "Give me a summary of chapter 3"</li>
+                <li>💡 <strong>Explain:</strong> "What does this concept mean?"</li>
+                <li>🎯 <strong>Focus:</strong> "What are the key points to remember?"</li>
+                <li>❓ <strong>Quiz:</strong> "Ask me questions about this topic"</li>
+                <li>🔗 <strong>Connect:</strong> "How does this relate to previous topics?"</li>
+            </ul>
+        </div>
+        <br>
+        <p><em>💬 Type your question above or click "Get Suggestions" for ideas!</em></p>
+    </div>
+    """)
+
+# Enhanced footer with stats and info
+st.markdown('<div class="footer">', unsafe_allow_html=True)
+
+# Stats row
+if st.session_state.chat_history:
+    total_questions = len([msg for role, msg in st.session_state.chat_history if role == "You"])
+    total_responses = len([msg for role, msg in st.session_state.chat_history if role == "Bot"])
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.markdown(f"**📊 Questions Asked:** {total_questions}")
+    with col2:
+        st.markdown(f"**🤖 AI Responses:** {total_responses}")
+    with col3:
+        if hasattr(st.session_state, 'pdf_name'):
+            st.markdown(f"**📄 Current Doc:** {st.session_state.pdf_name}")
+    with col4:
+        st.markdown("**🚀 Status:** Ready")
+
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <p>🎓 <strong>AI Lecture Assistant</strong> | Powered by 🦙 LLaMA3 + 🦜 LangChain + ⚡ Streamlit</p>
+        <p><em>Transforming education through intelligent AI conversations</em></p>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Display chat history with improved styling
 
