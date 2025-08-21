@@ -170,43 +170,54 @@ st.markdown("""
         to { opacity: 1; transform: translateX(0); }
     }
     
-    /* Button styling */
+    /* Enhanced Button Styling */
     .stButton > button {
-        background: #3b82f6;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
         color: white;
         border: none;
-        border-radius: 10px;
-        padding: 0.75rem 1.5rem;
+        border-radius: 12px;
+        padding: 0.75rem 1.75rem;
         font-weight: 600;
+        font-size: 0.95rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .stButton > button:hover {
-        background: #2563eb;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
     }
     
-    /* Input styling */
+    .stButton > button:active {
+        transform: translateY(0);
+        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Enhanced Input Styling */
     .stTextInput > div > div > input {
-        border-radius: 12px;
-        border: 2px solid #e2e8f0;
-        padding: 0.75rem 1rem;
+        border-radius: 15px;
+        border: 2px solid #cbd5e1;
+        padding: 1rem 1.25rem;
         font-size: 1rem;
         transition: all 0.3s ease;
         color: #1e293b !important;
-        background: white !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px);
     }
     
     .stTextInput > div > div > input:focus {
         border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         color: #1e293b !important;
+        background: white !important;
     }
     
     .stTextInput > div > div > input::placeholder {
         color: #64748b !important;
+        font-style: italic;
     }
     
     /* Chat container */
