@@ -35,6 +35,11 @@ with st.sidebar:
                     st.success(message)
                     st.session_state.pdf_processed = True
                     st.session_state.pdf_name = uploaded_file.name
+                    # Store the current PDF info for reference
+                    st.session_state.current_pdf_info = {
+                        'name': uploaded_file.name,
+                        'processed': True
+                    }
                 else:
                     st.error(message)
     
@@ -97,12 +102,8 @@ if submit and user_query:
     if st.session_state.pdf_processed:
         try:
             with st.spinner("🤖 Thinking..."):
-                # Determine PDF path
-                pdf_path = None
-                if hasattr(st.session_state, 'pdf_name'):
-                    pdf_path = getattr(st.session_state, 'current_pdf_path', None)
-                
-                answer = ask(user_query, pdf_path)
+                # Don't pass pdf_path since the chatbot now manages it internally
+                answer = ask(user_query)
             
             # Save Q&A to history
             st.session_state.chat_history.append(("You", user_query))
