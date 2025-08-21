@@ -618,44 +618,44 @@ if st.session_state.chat_history:
 else:
     st.markdown("""
     <div class="welcome-card">
-        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.4rem;">🎯 Ready to Learn!</h3>
-        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Your AI assistant is ready to help you understand your lecture notes better.</p>
+        <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.4rem;">🎯 Ready to Learn!</h3>
+        <p style="color: #64748b; font-size: 1.1rem; margin-bottom: 1.5rem;">Your AI assistant is ready to help you understand your lecture notes better.</p>
         
         <div style="text-align: left; max-width: 600px; margin: 0 auto;">
-            <h4 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">📝 What you can ask:</h4>
+            <h4 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.1rem;">📝 What you can ask:</h4>
             <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
                     <span style="margin-right: 0.75rem;">🔍</span>
                     <div>
-                        <strong style="color: var(--text-primary);">Summarize:</strong> 
-                        <span style="color: var(--text-secondary);">"Give me a summary of chapter 3"</span>
+                        <strong style="color: #1e293b;">Summarize:</strong> 
+                        <span style="color: #64748b;">"Give me a summary of chapter 3"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
                     <span style="margin-right: 0.75rem;">💡</span>
                     <div>
-                        <strong style="color: var(--text-primary);">Explain:</strong> 
-                        <span style="color: var(--text-secondary);">"What does this concept mean?"</span>
+                        <strong style="color: #1e293b;">Explain:</strong> 
+                        <span style="color: #64748b;">"What does this concept mean?"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
                     <span style="margin-right: 0.75rem;">🎯</span>
                     <div>
-                        <strong style="color: var(--text-primary);">Focus:</strong> 
-                        <span style="color: var(--text-secondary);">"What are the key points to remember?"</span>
+                        <strong style="color: #1e293b;">Focus:</strong> 
+                        <span style="color: #64748b;">"What are the key points to remember?"</span>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; padding: 0.5rem; background: var(--secondary-bg); border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
                     <span style="margin-right: 0.75rem;">❓</span>
                     <div>
-                        <strong style="color: var(--text-primary);">Quiz:</strong> 
-                        <span style="color: var(--text-secondary);">"Ask me questions about this topic"</span>
+                        <strong style="color: #1e293b;">Quiz:</strong> 
+                        <span style="color: #64748b;">"Ask me questions about this topic"</span>
                     </div>
                 </div>
             </div>
         </div>
         
-        <p style="color: var(--text-light); font-style: italic; margin: 0;"><em>💬 Type your question above or click "Tips" for more ideas!</em></p>
+        <p style="color: #94a3b8; font-style: italic; margin: 0;"><em>💬 Type your question above or click "Tips" for more ideas!</em></p>
     </div>
     """)
 
