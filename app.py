@@ -507,7 +507,7 @@ if st.session_state.chat_history:
 st.markdown("---")
 st.markdown(
     """
-    <div style='text-align: center;'>
+    <div style='text-align: center; color: #34495e;'>
         <p>🎓 <strong>AI Lecture Assistant</strong> | Powered by 🦙 LLaMA3 + 🦜 LangChain + ⚡ Streamlit</p>
         <p><em>Transforming education through intelligent AI conversations</em></p>
     </div>
