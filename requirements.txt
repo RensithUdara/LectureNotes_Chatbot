@@ -7,3 +7,5 @@ chroma
 transformers
 torch
 python-dotenv
+pypdf
+PyPDF2
