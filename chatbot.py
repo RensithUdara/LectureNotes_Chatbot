@@ -57,7 +57,7 @@ def create_vector_store(docs, pdf_path=None):
         embedding=embeddings,
         persist_directory=persist_directory
     )
-    vector_store.persist()
+    # Note: Chroma 0.4.x+ automatically persists, no need to call persist()
     return vector_store
 
 # Set up the retriever
