@@ -81,8 +81,18 @@ def setup_qa_chain(retriever):
 def ask(query: str, pdf_path=None):
     global _vector_store, _current_pdf_path
     
-    # Check if we need to reload the PDF
-    if pdf_path != _current_pdf_path or _vector_store is None:
+    # If no PDF path provided but we have a current vector store, use it
+    if pdf_path is None and _vector_store is not None:
+        # Use existing vector store
+        pass
+    # If we need to reload the PDF or no vector store exists
+    elif pdf_path != _current_pdf_path or _vector_store is None:
+        if pdf_path is None:
+            # Try default PDF first
+            pdf_path = "ctse_lecture_notes.pdf"
+            if not os.path.exists(pdf_path):
+                return "Error: No PDF loaded. Please upload a PDF file first."
+        
         try:
             docs = load_and_process_pdf(pdf_path)
             _vector_store = create_vector_store(docs, pdf_path)
@@ -91,6 +101,10 @@ def ask(query: str, pdf_path=None):
             return f"Error: {str(e)}. Please upload a PDF file first."
         except Exception as e:
             return f"Error processing PDF: {str(e)}"
+    
+    # Check if we have a vector store
+    if _vector_store is None:
+        return "Error: No PDF loaded. Please upload a PDF file first."
     
     retriever = setup_retriever(_vector_store)
     qa_chain = setup_qa_chain(retriever)
