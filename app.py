@@ -30,6 +30,17 @@ st.markdown(f"""
     .stApp {{
         font-family: 'Inter', sans-serif;
         background: #f8f9fa;
+        color: #2c3e50;
+    }}
+    
+    /* General text styling */
+    .stMarkdown, .stText, p, div, span {{
+        color: #2c3e50 !important;
+    }}
+    
+    /* Sidebar text styling */
+    .css-1d391kg p, .css-1d391kg div {{
+        color: rgba(255, 255, 255, 0.9) !important;
     }}
     
     .main .block-container {{
@@ -115,6 +126,12 @@ st.markdown(f"""
         font-size: 16px;
         transition: all 0.3s ease;
         background: rgba(255, 255, 255, 0.9);
+        color: #2c3e50 !important;
+    }}
+    
+    .stTextInput > div > div > input::placeholder {{
+        color: #7f8c8d !important;
+        opacity: 0.8;
     }}
     
     .stTextInput > div > div > input:focus {{
