@@ -220,17 +220,85 @@ st.markdown("""
         font-style: italic;
     }
     
-    /* Chat container */
+    /* Enhanced Chat container */
     .chat-container {
-        max-height: 500px;
+        max-height: 600px;
         overflow-y: auto;
-        padding: 1.5rem;
-        background: white;
-        border-radius: 12px;
-        margin: 1.5rem 0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e2e8f0;
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+        border-radius: 20px;
+        margin: 2rem 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
         color: #1e293b;
+    }
+    
+    /* Status Badges - Enhanced */
+    .status-success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin: 0.5rem 0;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        text-align: center;
+    }
+    
+    .status-warning {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin: 0.5rem 0;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        text-align: center;
+    }
+    
+    /* Welcome Cards - Premium Design */
+    .welcome-card {
+        text-align: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin: 1rem 0;
+        transition: all 0.3s ease;
+        color: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .welcome-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+    
+    .welcome-card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    
+    .welcome-card strong {
+        color: #1e293b;
+        font-weight: 700;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .welcome-card small {
+        color: #64748b;
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
     
     /* General text color fixes */
