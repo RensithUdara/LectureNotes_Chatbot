@@ -106,10 +106,14 @@ def ask(query: str, pdf_path=None):
 def process_uploaded_pdf(uploaded_file):
     """Process an uploaded PDF file from Streamlit file uploader"""
     try:
-        # Create a temporary file to save the uploaded PDF
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+        # Create a persistent temporary file to save the uploaded PDF
+        import tempfile
+        temp_dir = tempfile.gettempdir()
+        tmp_path = os.path.join(temp_dir, f"uploaded_pdf_{uploaded_file.name}")
+        
+        # Save the uploaded file
+        with open(tmp_path, "wb") as tmp_file:
             tmp_file.write(uploaded_file.getvalue())
-            tmp_path = tmp_file.name
         
         # Load and process the PDF
         docs = load_and_process_pdf(tmp_path)
@@ -120,15 +124,7 @@ def process_uploaded_pdf(uploaded_file):
         _vector_store = vector_store
         _current_pdf_path = tmp_path
         
-        return True, "PDF processed successfully!"
+        return True, f"PDF '{uploaded_file.name}' processed successfully!"
     
     except Exception as e:
         return False, f"Error processing PDF: {str(e)}"
-    
-    finally:
-        # Clean up temporary file
-        try:
-            if 'tmp_path' in locals():
-                os.unlink(tmp_path)
-        except:
-            pass
