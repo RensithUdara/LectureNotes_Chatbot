@@ -3,12 +3,17 @@ import streamlit as st
 import os
 from chatbot import ask, process_uploaded_pdf
 
-# Set up page
+# Set up page - Clean configuration
 st.set_page_config(
     page_title="AI Lecture Assistant", 
     page_icon="🎓",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
 )
 
 # Complete Professional UI Design
@@ -372,6 +377,25 @@ st.markdown("""
         color: #1e293b !important;
     }
     
+    /* Clean up any unwanted UI elements */
+    .stApp .css-1rs6os,
+    .stApp .css-17eq0hr,
+    .stApp .css-1kyxreq {
+        display: none !important;
+    }
+    
+    /* Hide any text nodes that might contain arrow text */
+    .stApp span:empty,
+    .stApp div:empty {
+        display: none !important;
+    }
+    
+    /* Specific fix for keyboard arrow text */
+    .stApp *[class*="keyboard"],
+    .stApp *[class*="arrow"] {
+        display: none !important;
+    }
+    
     .stInfo {
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%) !important;
         border-left: 4px solid #3b82f6 !important;
@@ -518,11 +542,49 @@ st.markdown("""
         color: #64748b;
     }
     
-    /* Hide Streamlit elements */
+    /* Hide Streamlit elements and fix unwanted text */
     #MainMenu {visibility: hidden;}
     .stDeployButton {display:none;}
     footer {visibility: hidden;}
     .stApp > header {display:none;}
+    
+    /* Hide sidebar toggle button text */
+    .css-1rs6os .css-17eq0hr {
+        display: none !important;
+    }
+    
+    /* Hide any unwanted arrow text */
+    .stButton .css-1rs6os {
+        display: none !important;
+    }
+    
+    /* Hide keyboard arrow text elements */
+    [data-testid="stSidebarNav"] {
+        display: none !important;
+    }
+    
+    /* Hide expand/collapse text */
+    .css-1kyxreq {
+        display: none !important;
+    }
+    
+    /* Hide any text containing arrow keywords */
+    *[title*="arrow"], 
+    *[aria-label*="arrow"],
+    *:contains("keyboard_double_arrow_right"),
+    *:contains("arrow_right") {
+        display: none !important;
+    }
+    
+    /* Fix sidebar toggle area */
+    .css-1d391kg .css-1rs6os {
+        display: none !important;
+    }
+    
+    /* Hide streamlit navigation elements */
+    .stSelectbox > div[data-baseweb="select"] > div:first-child {
+        display: none !important;
+    }
     
     /* Responsive design */
     @media (max-width: 768px) {
