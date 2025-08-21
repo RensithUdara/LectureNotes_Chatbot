@@ -3,7 +3,7 @@ import streamlit as st
 import os
 from chatbot import ask, process_uploaded_pdf
 
-# Set up page - Clean configuration
+# Set up page - Fixed sidebar configuration
 st.set_page_config(
     page_title="AI Lecture Assistant", 
     page_icon="🎓",
@@ -16,7 +16,114 @@ st.set_page_config(
     }
 )
 
-# Complete Professional UI Design
+# Force sidebar to stay open and disable collapse functionality
+st.markdown("""
+<style>
+    /* Force sidebar to be always visible and fixed */
+    .css-1d391kg {
+        background: linear-gradient(180deg, #1e293b 0%, #334155 100%) !important;
+        border-right: 3px solid #3b82f6 !important;
+        min-width: 300px !important;
+        max-width: 300px !important;
+        width: 300px !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        height: 100vh !important;
+        z-index: 999 !important;
+    }
+    
+    /* Completely hide the collapse button and all related elements */
+    button[kind="header"],
+    .css-1rs6os,
+    .css-17eq0hr,
+    .css-1kyxreq,
+    [data-testid="collapsedControl"],
+    .stSidebar > div:first-child > button,
+    .css-1d391kg > div:first-child,
+    .stSidebar button[aria-label*="Close"],
+    .stSidebar button[aria-label*="Open"],
+    *[title*="arrow"],
+    *[aria-label*="arrow"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    /* Adjust main content to account for fixed sidebar */
+    .main .block-container {
+        margin-left: 320px !important;
+        width: calc(100% - 340px) !important;
+        max-width: none !important;
+    }
+    
+    /* Ensure sidebar content is properly positioned */
+    .css-1d391kg .stSidebar > div {
+        padding-top: 2rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Override any Streamlit attempts to hide/show sidebar */
+    .css-1d391kg {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Remove any hover effects on sidebar toggle area */
+    .stApp [data-testid="stSidebar"] {
+        pointer-events: auto !important;
+    }
+    
+    .stApp [data-testid="stSidebar"] button {
+        display: none !important;
+    }
+</style>
+
+<script>
+// Additional JavaScript to ensure sidebar stays fixed
+setTimeout(function() {
+    // Remove any toggle buttons that might appear
+    const toggleButtons = document.querySelectorAll('button[kind="header"], [data-testid="collapsedControl"]');
+    toggleButtons.forEach(button => {
+        button.remove();
+    });
+    
+    // Remove any elements with arrow text
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        if (element.textContent && element.textContent.includes('keyboard_double_arrow')) {
+            element.remove();
+        }
+    });
+    
+    // Force sidebar to stay visible
+    const sidebar = document.querySelector('[data-testid="stSidebar"]');
+    if (sidebar) {
+        sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.transform = 'translateX(0px)';
+    }
+}, 500);
+
+// Continuous monitoring to prevent sidebar from being hidden
+setInterval(function() {
+    const sidebar = document.querySelector('[data-testid="stSidebar"]');
+    if (sidebar) {
+        sidebar.style.display = 'block';
+        sidebar.style.visibility = 'visible';
+        sidebar.style.transform = 'translateX(0px)';
+    }
+    
+    // Remove any new toggle buttons
+    const newToggles = document.querySelectorAll('button[kind="header"], [data-testid="collapsedControl"]');
+    newToggles.forEach(button => button.remove());
+}, 1000);
+</script>
+""", unsafe_allow_html=True)
+
+# Complete Professional UI Design with Fixed Sidebar
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -33,16 +140,18 @@ st.markdown("""
         min-height: 100vh;
     }
     
-    /* Main Content Area */
+    /* Main Content Area - Adjusted for Fixed Sidebar */
     .main .block-container {
         padding: 2rem;
         background: rgba(255, 255, 255, 0.95);
         border-radius: 20px;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        margin: 1.5rem;
+        margin: 1.5rem 1.5rem 1.5rem 320px;
         border: 1px solid rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(10px);
         color: #1e293b;
+        width: calc(100% - 340px);
+        max-width: none;
     }
     
     /* Sidebar Complete Redesign */
