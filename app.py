@@ -135,14 +135,14 @@ st.markdown(f"""
     
     .stButton > button:hover {{
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
     }}
     
     .welcome-card {{
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        background: rgba(248, 249, 250, 0.9);
         padding: 30px;
         border-radius: 20px;
-        border: 1px solid rgba(102, 126, 234, 0.2);
+        border: 1px solid rgba(52, 152, 219, 0.2);
         margin: 20px 0;
         text-align: center;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
