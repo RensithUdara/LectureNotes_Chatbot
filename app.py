@@ -20,6 +20,7 @@ st.markdown("""
     .stApp {
         font-family: 'Inter', sans-serif;
         background: #f8fafc;
+        color: #1e293b;
     }
     
     .main .block-container {
@@ -29,6 +30,16 @@ st.markdown("""
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         margin: 1rem;
         border: 1px solid #e2e8f0;
+        color: #1e293b;
+    }
+    
+    /* Text color improvements */
+    .stMarkdown, .stMarkdown p, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5 {
+        color: #1e293b !important;
+    }
+    
+    .stText {
+        color: #1e293b !important;
     }
     
     /* Sidebar styling */
@@ -115,11 +126,18 @@ st.markdown("""
         padding: 0.75rem 1rem;
         font-size: 1rem;
         transition: all 0.3s ease;
+        color: #1e293b !important;
+        background: white !important;
     }
     
     .stTextInput > div > div > input:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        color: #1e293b !important;
+    }
+    
+    .stTextInput > div > div > input::placeholder {
+        color: #64748b !important;
     }
     
     /* Chat container */
@@ -132,6 +150,29 @@ st.markdown("""
         margin: 1.5rem 0;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         border: 1px solid #e2e8f0;
+        color: #1e293b;
+    }
+    
+    /* General text color fixes */
+    .stExpander > div > div > p {
+        color: #1e293b !important;
+    }
+    
+    .stInfo > div > div > p {
+        color: #0c4a6e !important;
+    }
+    
+    .stSuccess > div > div > p {
+        color: #064e3b !important;
+    }
+    
+    /* Metric styling */
+    .stMetric > div > div {
+        color: #1e293b !important;
+    }
+    
+    .stMetric label {
+        color: #64748b !important;
     }
     
     /* Status badges */
@@ -166,6 +207,7 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         margin: 0.5rem 0;
         transition: transform 0.3s ease;
+        color: #1e293b;
     }
     
     .welcome-card:hover {
@@ -176,6 +218,15 @@ st.markdown("""
     .welcome-card-icon {
         font-size: 2rem;
         margin-bottom: 0.5rem;
+    }
+    
+    .welcome-card strong {
+        color: #1e293b;
+        font-weight: 600;
+    }
+    
+    .welcome-card small {
+        color: #64748b;
     }
     
     /* Hide Streamlit elements */
