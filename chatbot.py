@@ -4,14 +4,17 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
-from langchain_community.llms import HuggingFacePipeline
 from langchain_community.chat_models import ChatOllama
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import os
 import tempfile
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Set environment variables to suppress warnings
+os.environ.setdefault('TF_ENABLE_ONEDNN_OPTS', '0')
+os.environ.setdefault('TF_CPP_MIN_LOG_LEVEL', '2')
+os.environ.setdefault('PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
 
 # Make HF token optional
 hf_token = os.getenv("HF_API_TOKEN") or os.getenv("HUGGINGFACEHUB_API_TOKEN")
