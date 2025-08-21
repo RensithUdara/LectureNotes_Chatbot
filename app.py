@@ -29,7 +29,7 @@ st.markdown(f"""
     
     .stApp {{
         font-family: 'Inter', sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #f8f9fa;
     }}
     
     .main .block-container {{
@@ -42,13 +42,11 @@ st.markdown(f"""
     }}
     
     .css-1d391kg {{
-        background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+        background: #2c3e50;
     }}
     
     .main-title {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #2c3e50;
         font-size: 3rem;
         font-weight: 700;
         text-align: center;
@@ -73,12 +71,12 @@ st.markdown(f"""
     }}
     
     .user-message {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #3498db;
         color: white;
         padding: 15px 20px;
         border-radius: 20px 20px 5px 20px;
         margin: 10px 0 10px 15%;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
         animation: slideInRight 0.3s ease-out;
     }}
     
@@ -120,19 +118,19 @@ st.markdown(f"""
     }}
     
     .stTextInput > div > div > input:focus {{
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #3498db;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
     }}
     
     .stButton > button {{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #3498db;
         color: white;
         border: none;
         border-radius: 25px;
         padding: 12px 30px;
         font-weight: 600;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
     }}
     
     .stButton > button:hover {{
