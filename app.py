@@ -55,7 +55,7 @@ st.markdown(f"""
     
     .subtitle {{
         text-align: center;
-        color: #7f8c8d;
+        color: #34495e;
         font-size: 1.2rem;
         margin-bottom: 2rem;
     }}
