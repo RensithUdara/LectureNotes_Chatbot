@@ -22,210 +22,337 @@ def load_css():
 
 custom_css = load_css()
 
-# Professional CSS styling with custom CSS integration
+# Professional CSS styling with minimal colors and 3D shadows
 st.markdown(f"""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
+    /* Root variables for consistent theming */
+    :root {{
+        --primary-bg: #ffffff;
+        --secondary-bg: #f8fafc;
+        --sidebar-bg: #1e293b;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-light: #94a3b8;
+        --accent-blue: #3b82f6;
+        --accent-blue-hover: #2563eb;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }}
+    
+    /* Main app container */
     .stApp {{
         font-family: 'Inter', sans-serif;
-        background: #f8f9fa;
-        color: #2c3e50;
+        background: var(--secondary-bg);
+        color: var(--text-primary);
     }}
     
-    /* General text styling */
-    .stMarkdown, .stText, p, div, span {{
-        color: #2c3e50 !important;
-    }}
-    
-    /* Sidebar text styling */
-    .css-1d391kg p, .css-1d391kg div {{
-        color: rgba(255, 255, 255, 0.9) !important;
-    }}
-    
+    /* Main content area */
     .main .block-container {{
-        padding-top: 2rem;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
+        padding: 2rem 1rem;
+        background: var(--primary-bg);
+        border-radius: 12px;
+        box-shadow: var(--shadow-lg);
         margin: 1rem;
+        border: 1px solid var(--border-color);
     }}
     
+    /* Sidebar styling */
     .css-1d391kg {{
-        background: #2c3e50;
+        background: var(--sidebar-bg) !important;
+        border-right: 1px solid #334155;
     }}
     
+    .css-1d391kg .stMarkdown {{
+        color: #f1f5f9 !important;
+    }}
+    
+    .css-1d391kg .stMarkdown h1,
+    .css-1d391kg .stMarkdown h2,
+    .css-1d391kg .stMarkdown h3,
+    .css-1d391kg .stMarkdown p {{
+        color: #f1f5f9 !important;
+    }}
+    
+    /* Title styling */
     .main-title {{
-        color: #2c3e50;
-        font-size: 3rem;
+        color: var(--text-primary);
+        font-size: 2.5rem;
         font-weight: 700;
         text-align: center;
         margin-bottom: 0.5rem;
+        text-shadow: var(--shadow-sm);
     }}
     
     .subtitle {{
         text-align: center;
-        color: #34495e;
-        font-size: 1.2rem;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
         margin-bottom: 2rem;
+        font-weight: 400;
     }}
     
+    /* Chat container with 3D effect */
     .chat-container {{
-        max-height: 600px;
+        max-height: 500px;
         overflow-y: auto;
-        padding: 20px;
-        background: rgba(248, 249, 250, 0.8);
-        border-radius: 15px;
-        margin: 20px 0;
-        box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        padding: 1.5rem;
+        background: var(--primary-bg);
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
     }}
     
+    /* User message styling */
     .user-message {{
-        background: #3498db;
+        background: var(--accent-blue);
         color: white;
-        padding: 15px 20px;
-        border-radius: 20px 20px 5px 20px;
-        margin: 10px 0 10px 15%;
-        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        padding: 1rem 1.25rem;
+        border-radius: 16px 16px 4px 16px;
+        margin: 0.75rem 0 0.75rem 20%;
+        box-shadow: var(--shadow-md);
         animation: slideInRight 0.3s ease-out;
+        border: 1px solid rgba(59, 130, 246, 0.1);
     }}
     
+    /* Bot message styling */
     .bot-message {{
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        color: #2c3e50;
-        padding: 15px 20px;
-        border-radius: 20px 20px 20px 5px;
-        margin: 10px 15% 10px 0;
-        border-left: 4px solid #3498db;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: var(--primary-bg);
+        color: var(--text-primary);
+        padding: 1rem 1.25rem;
+        border-radius: 16px 16px 16px 4px;
+        margin: 0.75rem 20% 0.75rem 0;
+        border-left: 3px solid var(--accent-blue);
+        box-shadow: var(--shadow-md);
         animation: slideInLeft 0.3s ease-out;
+        border: 1px solid var(--border-color);
     }}
     
     .message-label {{
         font-weight: 600;
-        font-size: 0.85rem;
-        margin-bottom: 5px;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
         opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }}
     
+    /* Animation keyframes */
     @keyframes slideInRight {{
-        from {{ opacity: 0; transform: translateX(30px); }}
+        from {{ opacity: 0; transform: translateX(20px); }}
         to {{ opacity: 1; transform: translateX(0); }}
     }}
     
     @keyframes slideInLeft {{
-        from {{ opacity: 0; transform: translateX(-30px); }}
+        from {{ opacity: 0; transform: translateX(-20px); }}
         to {{ opacity: 1; transform: translateX(0); }}
     }}
     
+    /* Input styling */
     .stTextInput > div > div > input {{
-        border-radius: 25px;
-        border: 2px solid #e1e8ed;
-        padding: 12px 20px;
-        font-size: 16px;
+        border-radius: 12px;
+        border: 2px solid var(--border-color);
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
         transition: all 0.3s ease;
-        background: rgba(255, 255, 255, 0.9);
-        color: #2c3e50 !important;
-    }}
-    
-    .stTextInput > div > div > input::placeholder {{
-        color: #7f8c8d !important;
-        opacity: 0.8;
+        background: var(--primary-bg);
+        color: var(--text-primary);
+        box-shadow: var(--shadow-sm);
     }}
     
     .stTextInput > div > div > input:focus {{
-        border-color: #3498db;
-        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        border-color: var(--accent-blue);
+        box-shadow: var(--shadow-md), 0 0 0 3px rgba(59, 130, 246, 0.1);
+        outline: none;
     }}
     
+    .stTextInput > div > div > input::placeholder {{
+        color: var(--text-light);
+        opacity: 0.8;
+    }}
+    
+    /* Button styling */
     .stButton > button {{
-        background: #3498db;
+        background: var(--accent-blue);
         color: white;
         border: none;
-        border-radius: 25px;
-        padding: 12px 30px;
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
         font-weight: 600;
+        font-size: 0.9rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(59, 130, 246, 0.1);
     }}
     
     .stButton > button:hover {{
+        background: var(--accent-blue-hover);
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        box-shadow: var(--shadow-lg);
     }}
     
+    .stButton > button:active {{
+        transform: translateY(0);
+        box-shadow: var(--shadow-md);
+    }}
+    
+    /* Welcome card styling */
     .welcome-card {{
-        background: rgba(248, 249, 250, 0.9);
-        padding: 30px;
-        border-radius: 20px;
-        border: 1px solid rgba(52, 152, 219, 0.2);
-        margin: 20px 0;
+        background: var(--primary-bg);
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        margin: 1.5rem 0;
         text-align: center;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-lg);
+        position: relative;
     }}
     
+    .welcome-card::before {{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-blue), #8b5cf6);
+        border-radius: 16px 16px 0 0;
+    }}
+    
+    /* Status indicators */
     .status-success {{
-        background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        background: #10b981;
         color: white;
-        padding: 10px 15px;
+        padding: 0.5rem 1rem;
         border-radius: 20px;
         font-weight: 500;
+        font-size: 0.85rem;
         display: inline-block;
-        margin: 5px 0;
+        margin: 0.25rem 0;
+        box-shadow: var(--shadow-sm);
     }}
     
     .status-warning {{
-        background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        background: #f59e0b;
         color: white;
-        padding: 10px 15px;
+        padding: 0.5rem 1rem;
         border-radius: 20px;
         font-weight: 500;
+        font-size: 0.85rem;
         display: inline-block;
-        margin: 5px 0;
+        margin: 0.25rem 0;
+        box-shadow: var(--shadow-sm);
     }}
     
+    /* Progress container */
     .progress-container {{
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 15px;
-        padding: 20px;
-        margin: 10px 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        color: #2c3e50;
+        background: var(--primary-bg);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-primary);
     }}
     
-    /* Streamlit components text color */
+    /* Metrics styling */
     .stMetric {{
-        color: #2c3e50 !important;
+        background: var(--primary-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+    }}
+    
+    .stMetric > div {{
+        color: var(--text-primary) !important;
     }}
     
     .stMetric > div > div {{
-        color: #2c3e50 !important;
+        color: var(--text-primary) !important;
     }}
     
-    /* File uploader text */
-    .stFileUploader > div > div {{
-        color: #2c3e50 !important;
+    /* File uploader styling */
+    .stFileUploader {{
+        background: var(--primary-bg);
+        border-radius: 8px;
+        padding: 0.5rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
     }}
     
-    /* Form labels and text */
-    label {{
-        color: #2c3e50 !important;
+    .stFileUploader > div {{
+        color: var(--text-primary) !important;
     }}
     
-    /* Help text */
-    .stTextInput > label > div {{
-        color: #2c3e50 !important;
+    /* Sidebar file uploader */
+    .css-1d391kg .stFileUploader {{
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }}
     
+    .css-1d391kg .stFileUploader > div {{
+        color: #f1f5f9 !important;
+    }}
+    
+    /* Process step cards */
+    .process-step {{
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 0.5rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+        transition: transform 0.2s ease;
+    }}
+    
+    .process-step:hover {{
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }}
+    
+    /* Hide Streamlit elements */
     #MainMenu {{visibility: hidden;}}
     .stDeployButton {{display:none;}}
     footer {{visibility: hidden;}}
     .stApp > header {{display:none;}}
     
+    /* Responsive design */
     @media (max-width: 768px) {{
         .main-title {{ font-size: 2rem; }}
-        .user-message, .bot-message {{ margin-left: 5%; margin-right: 5%; }}
+        .user-message, .bot-message {{ 
+            margin-left: 5%; 
+            margin-right: 5%; 
+        }}
+        .main .block-container {{
+            margin: 0.5rem;
+            padding: 1rem;
+        }}
+    }}
+    
+    /* Custom scrollbar */
+    .chat-container::-webkit-scrollbar {{
+        width: 6px;
+    }}
+    
+    .chat-container::-webkit-scrollbar-track {{
+        background: var(--border-color);
+        border-radius: 3px;
+    }}
+    
+    .chat-container::-webkit-scrollbar-thumb {{
+        background: var(--text-light);
+        border-radius: 3px;
+    }}
+    
+    .chat-container::-webkit-scrollbar-thumb:hover {{
+        background: var(--text-secondary);
     }}
     
     /* Custom CSS from assets/custom.css */
@@ -240,13 +367,17 @@ st.markdown('<p class="subtitle">Transform your study experience with AI-powered
 # Sidebar
 with st.sidebar:
     st.markdown("""
-    <div style='text-align: center; padding: 20px 0;'>
-        <h2 style='color: white; font-weight: 600;'>📚 Document Hub</h2>
-        <p style='color: rgba(255,255,255,0.8); font-size: 0.9rem;'>Upload and manage your learning materials</p>
+    <div style='text-align: center; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem;'>
+        <h2 style='color: #f1f5f9; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.5rem;'>📚 Document Hub</h2>
+        <p style='color: #cbd5e1; font-size: 0.85rem; margin: 0; opacity: 0.9;'>Upload and manage your learning materials</p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("### 📄 Upload Document")
+    st.markdown("""
+    <div style='margin-bottom: 1rem;'>
+        <h3 style='color: #f1f5f9; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;'>📄 Upload Document</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader(
         "Choose your lecture notes (PDF)", 
@@ -293,7 +424,11 @@ with st.sidebar:
                     progress_placeholder.empty()
                     st.error(f"❌ Error processing PDF: {str(e)}")
     
-    st.markdown("### 📊 Status")
+    st.markdown("""
+    <div style='margin: 1.5rem 0 1rem 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);'>
+        <h3 style='color: #f1f5f9; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.75rem;'>📊 Status</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     if hasattr(st.session_state, 'pdf_processed') and st.session_state.pdf_processed:
         st.markdown(f"""
