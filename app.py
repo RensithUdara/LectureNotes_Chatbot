@@ -3,12 +3,17 @@ import streamlit as st
 import os
 from chatbot import ask, process_uploaded_pdf
 
-# Set up page
+# Set up page - Clean configuration
 st.set_page_config(
     page_title="AI Lecture Assistant", 
     page_icon="🎓",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
 )
 
 # Complete Professional UI Design
