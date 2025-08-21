@@ -191,6 +191,31 @@ st.markdown(f"""
         padding: 20px;
         margin: 10px 0;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        color: #2c3e50;
+    }}
+    
+    /* Streamlit components text color */
+    .stMetric {{
+        color: #2c3e50 !important;
+    }}
+    
+    .stMetric > div > div {{
+        color: #2c3e50 !important;
+    }}
+    
+    /* File uploader text */
+    .stFileUploader > div > div {{
+        color: #2c3e50 !important;
+    }}
+    
+    /* Form labels and text */
+    label {{
+        color: #2c3e50 !important;
+    }}
+    
+    /* Help text */
+    .stTextInput > label > div {{
+        color: #2c3e50 !important;
     }}
     
     #MainMenu {{visibility: hidden;}}
