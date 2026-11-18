@@ -43,5 +43,6 @@ hf_token.txt
 *.out
 *.mp4
 *.zip
-config.bat
 node_modules
+.env
+.vscode/
