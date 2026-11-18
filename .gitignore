@@ -46,3 +46,6 @@ hf_token.txt
 node_modules
 .env
 .vscode/
+.env.*
+.env.local
+.env.production
