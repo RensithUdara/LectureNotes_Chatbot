@@ -1,5 +1,4 @@
 # app.py
-import utils.session
 import streamlit as st
 import os
 from chatbot import ask, process_uploaded_pdf

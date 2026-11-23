@@ -44,4 +44,7 @@ hf_token.txt
 *.mp4
 *.zip
 node_modules
-config.bat
+.env
+.env.*
+.env.local
+.env.production
